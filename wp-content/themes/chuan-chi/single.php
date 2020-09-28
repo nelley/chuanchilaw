@@ -90,9 +90,16 @@ get_header();
 								<div class="entry-excerpt">
 									<?php
 										if ( has_excerpt() ) {
-											echo get_the_excerpt(); 
+											$str_trim = mb_substr(get_the_excerpt(),0,100, 'utf-8');
+											echo $str_trim.'...';
+										        	
 										} else {
-											echo wp_trim_words( get_the_content(), 80, '...' );
+											$remove_array = ["\r\n", "\r", "\n", " "];
+											//still call wp_trim_words since the layout problem
+											$content = wp_trim_words(strip_shortcodes(get_the_content()), 100, '...' );
+											$content = str_replace($remove_array, '', $content);
+											$str_trim = mb_substr($content, 0, 100, 'utf-8');
+											echo $str_trim.'...';
 										}
 									?>
 								</div>
