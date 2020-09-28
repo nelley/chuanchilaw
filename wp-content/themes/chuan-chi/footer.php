@@ -32,7 +32,7 @@
 							
 							foreach ( $categories as $category ) {
 					        	$output = '';
-                                $output = '<li id="menu-item-' . $category->term_id . '" class="menu-item menu-item-' . $category->term_id . $current . '">';
+                                $output = '<li id="menu-item-' . $category->term_id . '" class="menu-item menu-item-' . $category->term_id . '">';
 							    $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a>';
 						        $output .= '</li>';
 						        
