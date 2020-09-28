@@ -56,7 +56,7 @@
     $category_cnt_array = array();
     while ( $group_query->have_posts() ):
         $group_query->the_post();
-        $cat_names_array = get_the_category($ids);
+        $cat_names_array = get_the_category();
 
         foreach($cat_names_array as $cat){
             if(array_key_exists($cat->cat_name, $category_cnt_array)){
@@ -263,7 +263,9 @@
 						<div class="entry-tags">
 							<ul>
 								<?php foreach((array)$latest34_obj_arr[$key]->tags as $value): ?>
-									<li><a href="<?php echo get_tag_link($value->term_id); ?>"><?php echo $value->name; ?></a></li>
+									<?php if(isset($value->name)){ ?>
+										<li><a href="<?php echo get_tag_link($value->term_id); ?>"><?php echo $value->name; ?></a></li>
+									<?php } ?>
 								<?php endforeach; ?>
 							</ul>
 						</div>
@@ -460,7 +462,9 @@
 						<div class="entry-tags">
 							<ul>
 								<?php foreach((array)$top2_posts[$key2]->tags as $value): ?>
-									<li><a href="<?php echo get_tag_link($value->term_id); ?>"><?php echo $value->name; ?></a></li>
+									<?php if(isset($value->name)){ ?>
+										<li><a href="<?php echo get_tag_link($value->term_id); ?>"><?php echo $value->name; ?></a></li>
+									<? } ?>
 								<?php endforeach; ?>
 							</ul>
 						</div>
@@ -545,7 +549,9 @@
 						<div class="entry-tags">
 							<ul>
 								<?php foreach((array)$top2_posts[$key2]->tags as $value): ?>
-									<li><a href="<?php echo get_tag_link($value->term_id); ?>"><?php echo $value->name; ?></a></li>
+									<?php if(isset($value->name)){ ?>
+										<li><a href="<?php echo get_tag_link($value->term_id); ?>"><?php echo $value->name; ?></a></li>
+									<?php } ?>
 								<?php endforeach; ?>
 							</ul>
 						</div>
