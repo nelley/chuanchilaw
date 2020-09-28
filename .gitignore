@@ -10,3 +10,4 @@
 *.png
 error_log
 wp-config.php
+.htaccess
