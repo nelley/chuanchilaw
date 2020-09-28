@@ -54,7 +54,7 @@ get_header();
 					'posts_per_page' => 2, 
 					'post__not_in' => array($post->ID),
 					'orderby' => 'rand',
-					'caller_get_posts'=>1
+					'ignore_sticky_posts'=>1
 				);
 				$custom_query = new WP_Query( $custom_query_args ); 
 
