@@ -1,0 +1,12 @@
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+*.pdf
+*.csv
+*.txt
+*.jpg
+*.jpeg
+*.png
+error_log
+wp-config.php
