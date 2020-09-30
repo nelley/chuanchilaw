@@ -255,7 +255,7 @@
 					<div class="entry-meta">
 						<div class="entry-categories">
 							<ul>
-								<?php foreach($latest34_obj_arr[$key]->category as $value): ?>
+								<?php foreach((array)$latest34_obj_arr[$key]->category as $value): ?>
 									<li><a href="<?php echo get_category_link(get_cat_ID($value->name)); ?>"><?php echo $value->name; ?></a></li>
 								<?php endforeach; ?>
 							</ul>
@@ -340,15 +340,17 @@
                     <div class="entry-meta">
                         <div class="entry-categories">
                             <ul>
-                                <?php foreach($latest78_obj_arr[$key]->category as $value): ?>
+                                <?php foreach((array)$latest78_obj_arr[$key]->category as $value): ?>
                                     <li><a href="<?php echo get_category_link(get_cat_ID($value->name)); ?>"><?php echo $value->name; ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </div>
                         <div class="entry-tags">
                             <ul>
-                                <?php foreach($latest78_obj_arr[$key]->tags as $value): ?>
-                                    <li><a href="<?php echo get_tag_link($value->term_id); ?>"><?php echo $value->name; ?></a></li>
+                                <?php foreach((array)$latest78_obj_arr[$key]->tags as $value): ?>
+					<?php if(isset($value->name)){ ?>
+	                                    <li><a href="<?php echo get_tag_link($value->term_id); ?>"><?php echo $value->name; ?></a></li>
+					<?php } ?>
                                 <?php endforeach; ?>
                             </ul>
                         </div>
@@ -373,7 +375,7 @@
     $output_categories = array();
     $category_names = array();
     $categories=get_categories($args);
-    foreach($categories as $key=>$value) { 
+    foreach((array)$categories as $key=>$value) { 
         $output_categories[$key] = $value->cat_ID;
         $category_names[$key] = $value->name;
     }
@@ -433,7 +435,7 @@
 ?>
 <?php //Interface Init End ?>
 
-<?php foreach($between_author_n_firm as $key=>$value): ?>
+<?php foreach((array)$between_author_n_firm as $key=>$value): ?>
 	<section id="site-cats-<?php echo $output_categories[$key]; ?>" class="site-cats">
 		<div class="cats-container">
 			<div class="cats-title-deco"><img src="<?php echo home_url(); ?>/wp-content/themes/chuan-chi/images/cats-title-deco.png"></div>
